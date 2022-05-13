@@ -1,7 +1,38 @@
-<h1>List</h1>
 
-<% @lists.each do |list| %>
-<%= link_to list.name, list_path(list)  %>
- <%  end %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.pixabay.com/photo/2019/04/24/21/55/cinema-4153289_1280.jpg);">
+  <div class="container">
+    <h1>My Cinema List </h1>
+    <p>I am not cinephile but I want to share my favorite movies</p>
+  </div>
+</div>
 
-<%= link_to "add list", new_list_path %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <%= link_to new_list_path, class: 'navbar-link' do %>
+           <i class="fas fa-film">Add list</i>
+            <% end %>
+          </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="container mt-3 mb-5">
+  <div class="cards">
+    <% @lists.each do |list| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2019/04/24/21/55/cinema-4153289_1280.jpg)">
+        <%= link_to list.name, list_path(list) %>
+        <%= link_to list_path(list), class:'card-remove-link', method: :delete do %>
+          <i class="far fa-trash-alt"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
