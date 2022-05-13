@@ -27,7 +27,7 @@
 <div class="container mt-3 mb-5">
   <div class="cards">
     <% @lists.each do |list| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2019/04/24/21/55/cinema-4153289_1280.jpg)">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : image_path('film.jpg') %>)">
         <%= link_to list.name, list_path(list) %>
         <%= link_to list_path(list), class:'card-remove-link', method: :delete do %>
           <i class="far fa-trash-alt"></i>
