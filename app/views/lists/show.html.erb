@@ -4,12 +4,20 @@
 
 
 
+
 <% @list.bookmarks.each do |bookmark| %>
-  <h2>movie: <%= bookmark.movie.title %> </h2>
-  <h2>comment: <%= bookmark.comment %></h2>
+<div class="card" style="width: 18rem;">
+<%= image_tag bookmark.movie.poster_url %>
+ <div class="card-body">
+  <h5 class="card-title" >movie: <%= bookmark.movie.title %> </h5>
+  <h5>comment: <%= bookmark.comment %></h5>
+  <p class="card-text"><%= bookmark.movie.overview %></p>
+  <p></p>
   <%= link_to list_bookmark_path(@list, bookmark), method: "delete" do %>
   <i class="fas fa-trash-alt"></i>
   <% end %>
+   </div>
+</div>
 <% end %>
 
 <%= link_to "back", root_path %>
