@@ -2,6 +2,7 @@ require 'open-uri'
 require 'json'
 
 puts "clean database"
+List.destroy_all
 Movie.destroy_all
 
 Movie.create(title: "Tokyo Stroy 1953", overview: "The elderly Shukishi (Chishu Ryu) and his wife, Tomi (Chieko Higashiyama), take the long journey from their small seaside village to visit their adult children in Tokyo.", poster_url: "https://image.tmdb.org/t/p/original/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg", rating: 6.9)
