@@ -15,7 +15,7 @@
           </li>
           <li class="nav-item">
             <%= link_to new_list_path, class: 'navbar-link' do %>
-           <i class="fas fa-film">Add list</i>
+           <i class="fas fa-film"></i> Add List
             <% end %>
           </li>
       </ul>
@@ -29,7 +29,7 @@
     <% @lists.each do |list| %>
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : image_path('film.jpg') %>)">
         <%= link_to list.name, list_path(list) %>
-        <%= link_to list_path(list), class:'card-remove-link', method: :delete do %>
+        <%= link_to list_path(list), class:'card-remove-link', method: :delete, data: { confirm: "Are you sure?" } do %>
           <i class="far fa-trash-alt"></i>
         <% end %>
       </div>
